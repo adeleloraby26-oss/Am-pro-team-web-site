@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="google-site-verification" content="google21a4d48d87809235" />
+<title>AM PRO | Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div id="notif" class="notif">
+  <i data-lucide="check-circle"></i>
+  <span id="notifText"></span>
+</div>
+
+<div class="card">
+  <div class="top">
+    <i data-lucide="lock" style="width: 40px; height: 40px; margin-bottom: 10px;"></i>
+    <h1>AM PRO Login</h1>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab(event,'login')">Sign In</div>
+    <div class="tab" onclick="switchTab(event,'signup')">Create Account</div>
+  </div>
+
+  <div id="loginBox" autocomplete="off">
+    <div class="input">
+      <i data-lucide="mail" class="leftIcon"></i>
+      <input id="loginEmail" type="email" placeholder="Email address">
+    </div>
+    <div class="input">
+      <i data-lucide="lock" class="leftIcon"></i>
+      <input id="loginPass" type="text" placeholder="Password" autocomplete="off" style="-webkit-text-security:disc;" inputmode="text">
+    </div>
+    <button onclick="login()">Sign In</button>
+  </div>
+
+  <div id="signupBox" autocomplete="off" class="hidden">
+    <div class="input"><i data-lucide="user" class="leftIcon"></i><input id="name" placeholder="Full name"></div>
+    <div class="input"><i data-lucide="at-sign" class="leftIcon"></i><input id="username" placeholder="Username"></div>
+    <div class="input">
+      <i data-lucide="users" class="leftIcon"></i>
+      <select id="gender">
+        <option value="">Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+    <div class="input">
+      <i data-lucide="layers" class="leftIcon"></i>
+      <select id="field">
+        <option value="">Field</option>
+        <option>Programming</option>
+        <option>Content Creation</option>
+        <option>Sports</option>
+      </select>
+    </div>
+    <div class="input"><i data-lucide="mail" class="leftIcon"></i><input id="email" type="email" placeholder="Email address"></div>
+    <div class="input has-eye">
+      <i data-lucide="lock" class="leftIcon"></i>
+      <input id="pass" type="text" placeholder="Password" autocomplete="new-password" style="-webkit-text-security:disc;" inputmode="text" oninput="checkStrength(this.value)">
+      <button type="button" class="eye-toggle" onclick="toggleEye('pass',this)"><i data-lucide="eye"></i></button>
+    </div>
+    <div class="strength-bar">
+      <span id="sb1"></span><span id="sb2"></span><span id="sb3"></span><span id="sb4"></span><span id="sb5"></span>
+    </div>
+    <div class="strength-label" id="strengthLabel">Password strength</div>
+    <div class="input has-eye">
+      <i data-lucide="shield-check" class="leftIcon"></i>
+      <input id="confirmPass" type="text" placeholder="Confirm password" autocomplete="new-password" style="-webkit-text-security:disc;" inputmode="text">
+      <button type="button" class="eye-toggle" onclick="toggleEye('confirmPass',this)"><i data-lucide="eye"></i></button>
+    </div>
+    <button onclick="signup()">Create Account</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="auth.js"></script>
+</body>
+</html>
+
